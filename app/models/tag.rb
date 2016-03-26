@@ -1,6 +1,6 @@
 class Tag < ActiveRecord::Base
 
 	has_many :scans
-	has_one :group
+	belongs_to :group, inverse_of: :tag
 
 end

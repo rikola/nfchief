@@ -1,5 +1,5 @@
 class Client < ActiveRecord::Base
 
-	has_many :scans, inverse_of :client
+	has_many :scans, inverse_of: :client
 
 end
