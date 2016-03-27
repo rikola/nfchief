@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
+  get 'about' => 'welcome#about'
+
   get 'signup' => 'users#new'
   
   get 'login' => 'sessions#new'
