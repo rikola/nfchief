@@ -1,6 +1,12 @@
+
+<% if flash[:alert] %>
+<div class="alert alert-success"><%= flash[:alert] %></div>
+<% end %>
+
 <h1>This is the Welcome Page</h1>
 
-<h3><a href="/users">Users</a></h3>
-<h3><a href="/groups">Groups</a></h3>
-<h3><a href="/tags">Tags</a></h3>
-<h3><a href="/scans">Scans</a></h3>
+<%= link_to "Users", users_path %>
+<%= link_to "Groups", groups_path %>
+<%= link_to "Tags", tags_path %>
+<%= link_to "Scans", scans_path %>
+<%= link_to "Clients", clients_path %>
