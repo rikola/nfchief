@@ -1,5 +1,76 @@
 <% provide(:title, "About") %>
 
-<h1>About Page</h1>
 
-<p>This site does some stupid NFC tracking shit.</p>
+
+
+<div class="container about-container">
+
+	<div class="navbar">
+		<div class="inner">
+			<h3 class="masthead-brand">NFChief</h3>
+			<nav>
+				<ul class="nav masthead-nav">
+					<li><%= link_to "Home", root_path %></li>
+					<li class="active"><%= link_to "About", about_path %></li>
+					<% if logged_in? %>
+						<li><%= link_to "Dashboard", users_path %></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								Account <b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li><%= link_to "Profile", current_user %></li>
+								<li><%= link_to "Settings", '#' %></li>
+								<li class="divider"></li>
+								<li><%= link_to "Log Out", logout_path, method: "delete" %></li>
+							</ul>
+						</li>
+					<% else %>
+						<li><%= link_to "Log In", login_path %></li>
+					<% end %>
+				</ul>
+			</nav>
+		</div> <!-- inner -->
+	</div> <!-- masthead clearfix -->
+
+	<div class="about-header">
+		<h1 class="page-header">About <small>making shit get scanned</small></h1>	
+	</div>
+
+	<div class="about-content">
+		<p>This blog post shows a few different types of content that's supported and styled with
+			Bootstrap. Basic typography, images, and code are all supported.
+
+			Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.
+
+			Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.
+
+			Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
+			Heading
+
+			Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+			Sub-heading
+
+			Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+			Example code block
+
+			Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.
+			Sub-heading
+
+			Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+
+			Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+			Donec id elit non mi porta gravida at eget metus.
+			Nulla vitae elit libero, a pharetra augue.
+
+			Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
+
+			Vestibulum id ligula porta felis euismod semper.
+			Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+			Maecenas sed diam eget risus varius blandit sit amet non magna.
+
+			Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.
+		</p>
+	</div> <!-- row about-content -->
+</div>

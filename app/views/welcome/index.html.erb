@@ -1,45 +1,17 @@
 <div id="site-wrapper">
 	<div id="site-wrapper-inner">
 		<div class="cover-container">
-			<div class="masthead clearfix">
-				<div class="inner">
-					<h3 class="masthead-brand">NFChief</h3>
-					<nav>
-						<ul class="nav masthead-nav">
-							<li class="active"><%= link_to "Home", root_path %></li>
-							<li><%= link_to "About", about_path %></li>
-							<% if logged_in? %>
-								<li><%= link_to "Users", users_path %></li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-										Account <b class="caret"></b>
-									</a>
-									<ul class="dropdown-menu">
-										<li><%= link_to "Profile", current_user %></li>
-										<li><%= link_to "Settings", '#' %></li>
-										<li class="divider"></li>
-										<li><%= link_to "Log Out", logout_path, method: "delete" %></li>
-									</ul>
-								</li>
-							<% else %>
-								<li><%= link_to "Log In", login_path %></li>
-							<% end %>
-						</ul>
-					</nav>
-				</div>
-			</div>
+
+			<%= render 'header' %>
 			
 			<div class="inner cover">
 				<h1 class="cover-heading">NFC Reimagined</h1>
 				<p class="lead">Track your real world advertisements with ease.</p>
-				<p class="lead"><a class="btn btn-lg btn-default" href="#">Sign up!</a></p>
+				<p class="lead"><%= link_to "Register", signup_path, :class => "btn btn-lg btn-default", :id => "signup=button" %></p>
 			</div>
 
-			<div class="mastfoot">
-				<div class="inner">
-					<p>Made by <a href="#">Eric</a></p>
-				</div>
-			</div>
+			<%= render 'footer' %>
+
 		</div>
 	</div>
 </div>

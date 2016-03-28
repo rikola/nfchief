@@ -10,8 +10,220 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
  *
  */
 
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+// mixins, variables, etc.
+
+$gray-medium-light: #eaeaea;
+$white: #fff;
+$gray-light: #bbb;
+$red: #f00;
+
+@mixin box-sizing {
+  box-sizing: border-box;
+}
+
+
+// universal
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+// typography
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  color: $gray-light;
+  font-size: 1.2em;
+  font-weight: normal;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+
+// header
+
+#logo {
+  color: $white;
+  float: left;
+  font-size: 1.7em;
+  font-weight: bold;
+  letter-spacing: -1px;
+  margin-right: 10px;
+  padding-top: 9px;
+  text-transform: uppercase;
+
+  &:hover {
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+// footer
+
+footer {
+  border-top: 1px solid $gray-medium-light;
+  color: $gray-light;
+  margin-top: 45px;
+  padding-top: 5px;
+
+  a {
+    color: $gray;
+
+    &:hover {
+      color: $gray-darker;
+    }
+  }
+
+  small {
+    float: left;
+  }
+
+  ul {
+    float: right;
+    list-style: none;
+
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+}
+
+
+// sidebar
+
+aside {
+  section.user_info {
+    margin-top: 20px;
+  }
+
+  section {
+    padding: 10px 0;
+    margin-top: 20px;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.gravatar_edit {
+  margin-top: 15px;
+}
+
+
+// forms
+
+input,
+textarea,
+select,
+.uneditable-input {
+  @include box-sizing;
+  border: 1px solid $gray-light;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: $red;
+
+  ul {
+    color: $red;
+    margin: 0 0 30px;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+.checkbox {
+  margin-bottom: 10px;
+  margin-top: -10px;
+
+  span {
+    font-weight: normal;
+    margin-left: 20px;
+  }
+}
+
+#session_remember_me {
+  margin-left: 0;
+  width: auto;
+}
+
+
+// miscellaneous 
+
+.debug_dump {
+  @include box-sizing;
+  clear: both;
+  float: left;
+  margin-top: 45px;
+  width: 100%;
+}

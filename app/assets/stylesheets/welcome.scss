@@ -2,136 +2,180 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
 
-/* Welcome Globals */
+
+$white: #fff;
+$white-clearer: rgba(255, 255, 255, .5);
+$white-clearest: rgba(255, 255, 255, .25);
+$black: #000;
+
+// Welcome Globals
 
 a,
 a:focus,
 a:hover {
-	color: #fff;
+  color: $white;
 }
 
 html {
-	height: 100%;
-	body {
-		height: 100%;
-	}
+  height: 100%;
+
+  body {
+    background: $black url('texture.png');
+    height: 100%;
+  }
 }
 
 #site-wrapper {
-	height: 100%;
-	width: 100%;
-	color: #fff;
-	background-color: #333;
-	text-align: center;
-	text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-	display: table;
-	#site-wrapper-inner {
-		display: table-cell;
-		vertical-align: middle;
-		.cover-container {
-			margin-right: auto;
-			margin-left: auto;
-		}
-	}
+  background: $black url('texture.png');
+  color: $white;
+  display: table;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+
+  #site-wrapper-inner {
+    display: table-cell;
+    vertical-align: middle;
+
+    .cover-container {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
 }
 
 .inner {
-	padding: 30px;
+  padding: 30px;
 }
 
 .masthead-brand {
-	margin-top: 10px;
-	margin-bottom: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .masthead-nav {
-	li {
-		display: inline-block;	
-		a {
-			padding-right: 0;
-			padding-left: 0;
-			font-size: 16px;
-			font-weight: bold;
-			border-bottom: 2px solid transparent;
-			&:hover {
-				background-color: transparent;
-				border-bottom-color: rgba(255,255,255,.25);
-			}
-		}
-	}
-	.active {
-		a {
-			border-bottom-color: #fff;
-		}
-	}
+  li {
+    display: inline-block;
+
+    +li {
+      margin-left: 20px;
+    }
+
+    a {
+      border-bottom: 2px solid transparent;
+      font-size: 16px;
+      font-weight: bold;
+      padding-left: 0;
+      padding-right: 0;
+
+      &:hover {
+        background-color: transparent;
+        border-bottom-color: $white-clearest;
+      }
+    }
+  }
+
+  .active {
+    a {
+      border-bottom-color: $white;
+    }
+  }
 }
 
-.masthead-nav > li + li {
-	margin-left: 20px;
-}
 
 @media (min-width: 768px) {
-	
-	.masthead-brand {
-		float: left;
-	}
 
-	.masthead-nav {
-		float: right;
-	}
+  .masthead-brand {
+    float: left;
+  }
+
+  .masthead-nav {
+    float: right;
+  }
 }
 
 
-/* Cover */
+// Cover
 
 .cover {
-	padding: 0 20px;
-	.btn-lg {
-		padding: 10px 20px;
-		font-weight: bold;
-	}
+  padding: 0 20px;
+
+  .btn-lg {
+    font-weight: bold;
+    padding: 10px 20px;
+  }
 }
 
-/* Footer */
+// Footer
 
 .mastfoot {
-	color: rgba(255,255,255,.5);
+  color: $white-clearer;
 }
 
-/* Affix and center */
+
+// Affix and center
 
 @media (min-width: 768px) {
-	/* Pull out the header and footer */
-	.masthead {
-		position: fixed;
-		top: 0;
-	}
-	.mastfoot {
-		position: fixed;
-		bottom: 0;
-	}
+  // Pull out the header and footer
+  .masthead {
+    position: fixed;
+    top: 0;
+  }
 
-	/* Start the vertical centering */
-	.site-wrapper-inner {
-		vertical-align: middle;
-	}
+  .mastfoot {
+    bottom: 0;
+    position: fixed;
+  }
 
-	.masthead, 
-	.mastfoot, 
-	.cover-container {
-		width: 100%;
-	}
+  // Start the vertical centering
+  .site-wrapper-inner {
+    vertical-align: middle;
+  }
+
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 100%;
+  }
 }
 
 @media (min-width: 992px) {
-	.masthead,
-	.mastfoot,
-	.cover-container {
-		width: 700px;
-	}
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 700px;
+  }
 }
 
+
+// About page
+
+.about-container {
+  color: $white;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 700px;
+}
+
+// Swag pattern
+.gradient-pattern {
+  box-sizing: content-box;
+  width: 320px;
+  height: 320px;
+  border: 0;
+  font: normal 100%/normal Arial, Helvetica, sans-serif;
+  color: $white;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: linear-gradient(30deg, rgb(153,153,153) 12%, rgba(0,0,0,0) 12.5%, rgba(0,0,0,0) 87%, rgb(153,153,153) 87.5%, rgb(153,153,153) 0), linear-gradient(150deg, rgb(153,153,153) 12%, rgba(0,0,0,0) 12.5%, rgba(0,0,0,0) 87%, rgb(153,153,153) 87.5%, rgb(153,153,153) 0), linear-gradient(30deg, rgb(153,153,153) 12%, rgba(0,0,0,0) 12.5%, rgba(0,0,0,0) 87%, rgb(153,153,153) 87.5%, rgb(153,153,153) 0), linear-gradient(150deg, rgb(153,153,153) 12%, rgba(0,0,0,0) 12.5%, rgba(0,0,0,0) 87%, rgb(153,153,153) 87.5%, rgb(153,153,153) 0), linear-gradient(60deg, rgb(187,187,187) 25%, rgba(0,0,0,0) 25.5%, rgba(0,0,0,0) 75%, rgb(187,187,187) 75%, rgb(187,187,187) 0), linear-gradient(60deg, rgb(187,187,187) 25%, rgba(0,0,0,0) 25.5%, rgba(0,0,0,0) 75%, rgb(187,187,187) 75%, rgb(187,187,187) 0), rgb(170, 170, 170);
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+  background-origin: padding-box;
+  background-clip: border-box;
+  background-size: 80px 140px;
+}
 
 
 
