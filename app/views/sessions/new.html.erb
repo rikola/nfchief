@@ -1,14 +1,24 @@
-<div class="login">
-	<div class="container">
-		<% if flash[:alert] %>
-		<div class="alert alert-danger"><%= flash[:alert] %></div>
+<% provide(:title, "Log In") %>
+<h1>Log In</h1>
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<%= form_for(:session, url: login_path) do |f| %>
+
+			<%= f.label :email %>
+			<%= f.email_field :email, class: 'form-control' %>
+
+			<%= f.label :password %>
+			<%= f.password_field :password, class: 'form-control' %>
+
+			<%= f.label :remember_me, class: "checkbox inline" do %>
+	        	<%= f.check_box :remember_me %>
+	        	<span>Remember me on this computer</span>
+	      	<% end %>
+
+			<%= f.submit "Log in", class: 'btn btn-primary' %>
 		<% end %>
-		<div class="form">
 
-			<h1>Log in</h1>
-			
-			<%= render 'form' %>
-
-		</div>
+		<p>New user? <%= link_to "Sign up now", signup_path %></p>
 	</div>
 </div>
