@@ -1,32 +1,24 @@
-# README
+# NFChief
 
 [![Build Status](https://travis-ci.com/rikola/nfcchief.svg?token=UFA1wpQtMzhtTiyRH67s&branch=master)](https://travis-ci.com/rikola/nfcchief)
 
 ----
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Introduction
 
-Things you may want to cover:
+NFChief allows data collection and remote management of deployed NFC tags. This is useful for people with a need to know the impact of their physically deployed posters, signs, or advertisements. It can also be useful for attaching any web resource to a physical object, such as placing an NFC tag on an appliance with a URL to the appliance manual.
 
-* Ruby version
+### Requirements:
+* Ruby version: 2.2.3
+* Rails 4
+* MySql (for production)
 
-* System dependencies
+### Setup:
+1. Clone the repository and run `bundle install`
+2. Run `bundle exec rake db:migrate` to set up the development database.
 
-* Configuration
+### Running the test suite:
+1. Run `bundle exec rake test`
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+### Deployment:
+1. Deploy through the deployment branch of the repository. It is locked to everyone except me so make a pull request.
