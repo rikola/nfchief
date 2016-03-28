@@ -1,17 +1,19 @@
-<div id="site-wrapper">
-	<div id="site-wrapper-inner">
+<div class="site-wrapper layout-full-height">
+	<div class="page-container layout-full-height">
+		
+		<%= render 'header' %>
+		
 		<div class="cover-container">
 
-			<%= render 'header' %>
-			
 			<div class="inner cover">
-				<h1 class="cover-heading">NFC Reimagined</h1>
-				<p class="lead">Track your real world advertisements with ease.</p>
-				<p class="lead"><%= link_to "Register", signup_path, :class => "btn btn-lg btn-default", :id => "signup=button" %></p>
+				<h1 class="cover-heading">NFChief</h1>
+				<p class="lead">Real world, physical ROI analysis. </br>
+				Mass NFC tag configuration and management.</p>
+				<p class="lead"><%= link_to "Get Started!", signup_path, :class => "btn btn-lg btn-default", :id => "signup=button" %></p>
 			</div>
+		</div> <!-- cover-container -->
 
-			<%= render 'footer' %>
+		<%= render 'footer' %>
 
-		</div>
-	</div>
-</div>
+	</div> <!-- page-container -->
+</div> <!-- site-wrapper -->

@@ -1,4 +1,8 @@
-== README
+# README
+
+[![Build Status](https://travis-ci.com/rikola/nfcchief.svg?token=UFA1wpQtMzhtTiyRH67s&branch=master)](https://travis-ci.com/rikola/nfcchief)
+
+----
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

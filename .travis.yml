@@ -1,0 +1,5 @@
+# Probably need to update this for the right Ruby version.
+
+language: ruby
+rvm:
+  - 2.2.3

@@ -1,8 +1,12 @@
 <div class="masthead">
 	<div class="inner">
-		<h3 class="masthead-brand">NFChief</h3>
-		<nav>
-			<ul class="nav masthead-nav">
+		
+		<%= link_to root_path, class: "navbar-brand btn" do %>
+		    <i class="glyphicon glyphicon-tent"></i>
+		<% end %>
+
+		<nav class="navbar">
+			<ul class="nav navbar-nav navbar-right masthead-nav">
 				<li class="active"><%= link_to "Home", root_path %></li>
 				<li><%= link_to "About", about_path %></li>
 				<% if logged_in? %>
@@ -24,4 +28,4 @@
 			</ul>
 		</nav>
 	</div> <!-- inner -->
-</div> <!-- masthead clearfix -->
+</div> <!-- masthead -->
