@@ -21,4 +21,4 @@ NFChief allows data collection and remote management of deployed NFC tags. This 
 1. Run `bundle exec rake test`
 
 ### Deployment:
-1. Deploy through the deployment branch of the repository. It is locked to everyone except me so make a pull request.
+1. Deploy through the deployment branch of the repository. It is locked to everyone except @rikola so make a pull request.
