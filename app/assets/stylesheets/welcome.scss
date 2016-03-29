@@ -13,6 +13,7 @@ $black: #000;
 
 // App Globals
 
+
 // universal
 
 section {
@@ -30,6 +31,7 @@ textarea {
     margin-bottom: 10px;
   }
 }
+
 
 // typography
 
@@ -62,8 +64,6 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
-
-
 
 
 // Welcome Globals
@@ -127,8 +127,6 @@ html {
 
 // Footer
 
-
-
 .mastfoot {
   color: $white-clearer;
 }
@@ -167,8 +165,9 @@ html {
   li {
     margin-left: 15px;
     margin-right: 15px;
+    
     a {
-      font-size: 15px;  
+      font-size: 15px;
     }
   }
 }
