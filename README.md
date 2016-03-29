@@ -1,7 +1,7 @@
 # NFChief
 
 [![Build Status](https://travis-ci.com/rikola/nfchief.svg?token=UFA1wpQtMzhtTiyRH67s&branch=master)](https://travis-ci.com/rikola/nfcchief)
-[![Code Climate](https://codeclimate.com/github/rikola/nfchief.svg)](https://codeclimate.com/github/rikola/nfchief)
+[![Code Climate](https://codeclimate.com/repos/56fad61ee9a03d00730017aa/badges/07900d6b4205e214026d/gpa.svg)](https://codeclimate.com/repos/56fad61ee9a03d00730017aa/feed)
 
 ----
 
