@@ -81,7 +81,7 @@ html {
   height: 100%;
 
   body {
-    background: $black url('texture.png');
+    background: $black asset-data-url('texture.png');
     color: $white;
     height: 100%;
   }
