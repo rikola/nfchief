@@ -11,3 +11,7 @@ services:
 
 before_script:
   - psql -c 'create database nfchief_test;' -U postgres
+
+addons:
+    code_climate:
+        repo_token: c020dece89a4b7a63ed7be0efe1e5340d2108a413278a5e3bf19feef48d182e8
