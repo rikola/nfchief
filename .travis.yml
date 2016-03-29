@@ -5,3 +5,9 @@ rvm:
   - 2.2.3
 
 cache: bundler
+
+services:
+  - postgresql
+
+before_script:
+  - psql -c 'create database nfchief_test;' -U postgres
