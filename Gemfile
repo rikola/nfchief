@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
-
+# PostgreSQL
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Custom bootstrapping shit
@@ -29,8 +30,6 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
 end
 
 group :test do 
@@ -48,7 +47,6 @@ end
 
 group :production do
 	# AWS gems
-	gem 'pg'
 	gem 'puma'
 end
 
