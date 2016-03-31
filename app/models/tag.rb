@@ -1,6 +1,5 @@
 class Tag < ActiveRecord::Base
 
-	has_many :scans
-	belongs_to :group, inverse_of: :tag
-
+	belongs_to :product
+	
 end
