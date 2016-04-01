@@ -6,6 +6,11 @@ ActiveAdmin.register_page "Dashboard" do
 
     columns do
       column do
+        
+        panel "Tags Created" do
+          pie_chart Tag.group(:product_id).count
+        end
+
         panel "Recent Tags" do
           ul do
             Tag.order(created_at: :desc).limit(10).each do |tag|
@@ -13,13 +18,28 @@ ActiveAdmin.register_page "Dashboard" do
             end
           end
         end
+        
       end
 
       column do
-        panel "Info" do
-          para "Welcome to ActiveAdmin."
+
+        panel "Scan Heat Map" do
+          geo_chart [ 
+            ["United States", rand(200)],
+            ["Russia", rand(200)],
+            ["China", rand(200)],
+            ["Niger", rand(200)],
+            ["France", rand(200)],
+            ["Norway", rand(200)],
+            ["Peru", rand(200)],
+            ["Argentina", rand(200)],
+            ["Saudi Arabia", rand(200)],
+            ["New Zealand", rand(200)]
+          ]
         end
+
       end
+
     end
 
 

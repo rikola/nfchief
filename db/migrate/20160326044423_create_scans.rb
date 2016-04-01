@@ -4,5 +4,7 @@ class CreateScans < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_reference :scans, :tag
   end
 end

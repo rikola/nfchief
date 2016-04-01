@@ -7,11 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
-
+# 
 product_list = [
-	["Hipster band poster", "Faggot rock band from Brooklyn"],
-	["Smelly marketing poster", "Fartards"],
-	["Hebrew School", "Advanced Hebrology"]
+	["Bubbles and the Shit Rockers", "Best band in Sunnyvale!"],
+	["Synergy Internet of Things in The Cloud", "Cheesy marketing company campaign."],
+	["Hebrew School", "Advanced Hebrology and IDF recruiting."]
 ]
 
 product_list.each do |name, description|
@@ -19,23 +19,24 @@ product_list.each do |name, description|
 end
 
 
+# [location_description, product_id]
 description_list = [
 	["Shit coffee place", 1],
-	["France", 1],
-	["Belgium", 2],
-    ["Netherlands", 2],
-    ["Shit coffee place", 1],
-	["Satay", 1],
+	["On the Rand billboard", 1],
+	["Behind your mother", 2],
+    ["Buttrick first floor", 2],
+    ["Chili's", 1],
+	["Qudoba", 1],
 	["Tin Roof", 2],
-    ["Taption", 2],
-    ["Shartini Mixer", 3],
-	["Hebrew Motza", 3],
-	["Draedels", 3],
-    ["Netherlands", 2],
-    ["Shit coffee place", 1],
-	["France", 1],
-	["Belgium", 2],
-    ["Netherlands", 2]
+    ["Barnes & Noble", 2],
+    ["Bread & Co.", 3],
+	["Wendys", 3],
+	["The Liquor Store", 3],
+    ["Chipotle", 2],
+    ["Mellow Mushroom", 1],
+	["Panera", 1],
+	["Starbucks", 2],
+    ["Brueggers", 2]
 ]
 
 description_list.each do |description, product_id|
