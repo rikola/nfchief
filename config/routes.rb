@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :clients
-  resources :scans
   resources :tags
   resources :groups
-  resources :users
 
   root 'welcome#index'
+
+  get 'login' => redirect('/admin')
+  match '/admin', to: 'admin/dashboard#index', via: :get
 
   get 'about' => 'welcome#about'
 

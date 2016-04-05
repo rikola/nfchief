@@ -1,7 +1,4 @@
 class Scan < ActiveRecord::Base
-
-	has_one :client
-	has_one :tag
-	has_one :group, through: :tag
-
+	belongs_to :customer
+	belongs_to :tag
 end
