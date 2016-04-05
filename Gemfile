@@ -30,13 +30,13 @@ gem 'annotate_models'
 gem 'bcrypt', '~> 3.1.7'
 
 # Admin interfaces
-gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin', '~>1.0.0.pre1'
 gem 'devise'
 
 # Charting and data visualization
 gem 'chartkick'
 gem 'groupdate'
-gem 'geokit-rails', github: 'geokit/geokit-rails'
+gem 'geokit-rails', '~> 2.1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
