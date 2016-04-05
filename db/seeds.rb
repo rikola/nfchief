@@ -32,6 +32,13 @@ Group.populate 100 do |group|
 		product.group_id = group.id
 		product.name = Faker::Commerce.product_name
 		product.description = Faker::Company.bs.capitalize
+
+		Tag.populate 10..30 do |tag|
+			tag.product_id = product.id
+			tag.description = Faker::Address.street_address
+			tag.lat = Faker::Address.latitude
+			tag.lng = Faker::Address.longitude
+		end
 	end
 
 	Membership.populate 2..10 do |membership|

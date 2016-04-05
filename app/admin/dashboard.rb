@@ -18,11 +18,9 @@ ActiveAdmin.register_page "Dashboard" do
             end
           end
         end
-        
       end
 
       column do
-
         panel "Scan Heat Map" do
           geo_chart [ 
             ["United States", rand(200)],
@@ -37,7 +35,6 @@ ActiveAdmin.register_page "Dashboard" do
             ["New Zealand", rand(200)]
           ]
         end
-
       end
 
     end

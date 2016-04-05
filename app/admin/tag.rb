@@ -13,6 +13,24 @@ ActiveAdmin.register Tag do
 #   permitted
 # end
 	
-	permit_params :location_description, :product_id
+	permit_params :product_id, :description, :lat, :lng
 
+	index do
+    selectable_column
+    id_column
+    column :description
+    column :lat
+    column :lng
+    actions
+  end
+
+	show do
+		attributes_table do
+			row :product
+			row :description
+			row :lat
+			row :lng
+			row :country
+		end
+	end
 end

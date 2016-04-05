@@ -25,6 +25,22 @@ ActiveAdmin.register Product do
     actions
   end
 
+  show do 
+    attributes_table do
+      row :id
+      row :group
+      row :name
+      row :description
+    end
 
+    panel "Tags Deployed" do
+      table_for product.tags do
+        column :id
+        column :lat
+        column :lng
+      end
+    end
+
+  end
 
 end

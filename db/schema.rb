@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160404232946) do
+ActiveRecord::Schema.define(version: 20160405050338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,9 +50,7 @@ ActiveRecord::Schema.define(version: 20160404232946) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", using: :btree
 
   create_table "customers", force: :cascade do |t|
-    t.string   "cookie_token"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string "cookie_token"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -79,17 +77,13 @@ ActiveRecord::Schema.define(version: 20160404232946) do
 
   add_index "products", ["group_id"], name: "index_products_on_group_id", using: :btree
 
-  create_table "scans", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "customer_id"
-  end
-
-  add_index "scans", ["customer_id"], name: "index_scans_on_customer_id", using: :btree
-
   create_table "tags", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "product_id"
+    t.string  "description"
+    t.float   "lat"
+    t.float   "lng"
   end
+
+  add_index "tags", ["product_id"], name: "index_tags_on_product_id", using: :btree
 
 end

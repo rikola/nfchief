@@ -36,6 +36,7 @@ gem 'devise'
 # Charting and data visualization
 gem 'chartkick'
 gem 'groupdate'
+gem 'geokit-rails', github: 'geokit/geokit-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

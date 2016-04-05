@@ -4,7 +4,6 @@ class CreateProducts < ActiveRecord::Migration
       t.belongs_to :group, index: true
       t.string :name
       t.string :description
-      t.integer :group_id
 
       t.timestamps null: false
     end
