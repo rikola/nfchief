@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160331234015) do
+ActiveRecord::Schema.define(version: 20160404232946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,12 +42,12 @@ ActiveRecord::Schema.define(version: 20160331234015) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.string   "name"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
-  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+  add_index "admin_users", ["email"], name: "index_admin_users_on_email", using: :btree
 
   create_table "customers", force: :cascade do |t|
     t.string   "cookie_token"
@@ -55,30 +55,41 @@ ActiveRecord::Schema.define(version: 20160331234015) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "products", force: :cascade do |t|
+  create_table "groups", force: :cascade do |t|
     t.string   "name"
-    t.text     "description"
+    t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
+  create_table "memberships", force: :cascade do |t|
+    t.integer  "admin_user_id"
+    t.integer  "group_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.integer  "group_id"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "products", ["group_id"], name: "index_products_on_group_id", using: :btree
+
   create_table "scans", force: :cascade do |t|
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "tag_id"
     t.integer  "customer_id"
   end
 
   add_index "scans", ["customer_id"], name: "index_scans_on_customer_id", using: :btree
 
   create_table "tags", force: :cascade do |t|
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.string   "location_description"
-    t.integer  "product_id"
-    t.integer  "scans_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
-  add_index "tags", ["product_id"], name: "index_tags_on_product_id", using: :btree
 
 end

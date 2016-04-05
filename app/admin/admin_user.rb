@@ -5,16 +5,14 @@ ActiveAdmin.register AdminUser do
     selectable_column
     id_column
     column :email
-    column :current_sign_in_at
-    column :sign_in_count
+    column :name
     column :created_at
     actions
   end
 
   filter :email
-  filter :current_sign_in_at
-  filter :sign_in_count
   filter :created_at
+  filter :groups
 
   form do |f|
     f.inputs "Admin Details" do
@@ -23,6 +21,23 @@ ActiveAdmin.register AdminUser do
       f.input :password_confirmation
     end
     f.actions
+  end
+
+
+  show do
+    attributes_table do
+      row :name
+      row :email
+      row :created_at
+      row :sign_in_count
+    end
+
+    panel "Group Memberships" do
+      table_for admin_user.groups do
+        column :name
+        column :description
+      end
+      end    
   end
 
 end

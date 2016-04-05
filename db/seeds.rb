@@ -5,40 +5,37 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
-# 
-product_list = [
-	["Bubbles and the Shit Rockers", "Best band in Sunnyvale!"],
-	["Synergy Internet of Things in The Cloud", "Cheesy marketing company campaign."],
-	["Hebrew School", "Advanced Hebrology and IDF recruiting."]
-]
 
-product_list.each do |name, description|
-  Product.create( name: name, description: description )
+require 'populator'
+require 'faker'
+
+[Group, Product, AdminUser, Membership].each(&:delete_all)
+
+AdminUser.create(email: "admin@example.com", password: "password", name: "Mr. Lahey")
+
+# Make users the normal way because it has to pass validation
+100.times do
+	email = Faker::Internet.safe_email
+	name = Faker::Name.name
+	password = "password"
+	AdminUser.create(email: email, name: name, password: password)
 end
 
+# Populate all the groups with products
+Group.populate 100 do |group|
+	group.name = Faker::Company.name
+	group.description = Faker::Company.catch_phrase
+	
+	Product.populate 10..100 do |product|
+		product.group_id = group.id
+		product.name = Faker::Commerce.product_name
+		product.description = Faker::Company.bs.capitalize
+	end
 
-# [location_description, product_id]
-description_list = [
-	["Shit coffee place", 1],
-	["On the Rand billboard", 1],
-	["Behind your mother", 2],
-    ["Buttrick first floor", 2],
-    ["Chili's", 1],
-	["Qudoba", 1],
-	["Tin Roof", 2],
-    ["Barnes & Noble", 2],
-    ["Bread & Co.", 3],
-	["Wendys", 3],
-	["The Liquor Store", 3],
-    ["Chipotle", 2],
-    ["Mellow Mushroom", 1],
-	["Panera", 1],
-	["Starbucks", 2],
-    ["Brueggers", 2]
-]
-
-description_list.each do |description, product_id|
-  Tag.create( location_description: description, product_id: product_id )
-end
+	Membership.populate 2..10 do |membership|
+		membership.admin_user_id = AdminUser.all.sample.id
+		membership.group_id = group.id
+	end
+end 

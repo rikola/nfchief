@@ -7,14 +7,14 @@ ActiveAdmin.register_page "Dashboard" do
     columns do
       column do
         
-        panel "Tags Created" do
-          pie_chart Tag.group(:product_id).count
-        end
+        #panel "Tags Created" do
+        #  pie_chart Tag.group(:product_id).count
+        #end
 
-        panel "Recent Tags" do
+        panel "My Groups" do
           ul do
-            Tag.order(created_at: :desc).limit(10).each do |tag|
-              li link_to(tag.location_description, admin_tag_path(tag))
+            current_admin_user.groups.each do |group|
+              li link_to(group.name, admin_group_path(group))
             end
           end
         end
