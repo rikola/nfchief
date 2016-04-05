@@ -20,8 +20,14 @@ ActiveAdmin.register Group do
     id_column
     column :name
     column :description
+    column :products
     actions
   end
+
+  filter :products
+  filter :name
+  filter :description
+  filter :created_at
 
   show do
   	attributes_table do
@@ -29,22 +35,31 @@ ActiveAdmin.register Group do
   		row :description
   	end
 
-  	panel "Members" do
-  		table_for group.admin_users do
-  			column :email
-  			column :name
-  		end
-  	end
+    panel "Product Activity" do
+      # Somethings fucky here
+      line_chart group.products.each do |product|
+        { name: product.name, data: product.scans.group_by_day(:created_at).count }
+      end
+    end
 
-  	panel "Products" do
- 	 		table_for group.products do
- 	 			column :id
- 	 			column :name
- 	 			column :description
- 	 		end
- 	 	end
-
-  	active_admin_comments
+    columns do
+      column do
+      	panel "Members – #{group.admin_users.count}" do
+      		table_for group.admin_users do
+      			column :email
+      			column :name
+      		end
+      	end
+      end
+      column do
+      	panel "Products – #{group.products.count}" do
+     	 		table_for group.products do
+     	 			column :name
+     	 			column :description
+     	 		end
+     	 	end
+       end
+     end
   end
 
 end

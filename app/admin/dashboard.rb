@@ -22,18 +22,8 @@ ActiveAdmin.register_page "Dashboard" do
 
       column do
         panel "Scan Heat Map" do
-          geo_chart [ 
-            ["United States", rand(200)],
-            ["Russia", rand(200)],
-            ["China", rand(200)],
-            ["Niger", rand(200)],
-            ["France", rand(200)],
-            ["Norway", rand(200)],
-            ["Peru", rand(200)],
-            ["Argentina", rand(200)],
-            ["Saudi Arabia", rand(200)],
-            ["New Zealand", rand(200)]
-          ]
+          map_items = Tag.group(:country).count
+          geo_chart map_items
         end
       end
 

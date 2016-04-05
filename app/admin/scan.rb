@@ -13,5 +13,9 @@ ActiveAdmin.register Scan do
 #   permitted
 # end
 
+	permit_params :customer, :tag, :ip_address
+
+
+
 
 end

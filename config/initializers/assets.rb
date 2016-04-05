@@ -13,3 +13,5 @@ Rails.application.config.assets.version = '1.0'
 %w( welcome ).each do |controller|
   Rails.application.config.assets.precompile += ["#{controller}.js.coffee", "#{controller}.css"]
 end
+
+Rails.application.config.assets.precompile += %w[active_admin.css active_admin.js]

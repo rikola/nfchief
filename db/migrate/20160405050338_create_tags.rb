@@ -6,6 +6,9 @@ class CreateTags < ActiveRecord::Migration
     	# Geokit properties for location data
     	t.float :lat
     	t.float :lng
+    	t.string :country
+
+    	t.timestamps null: false
     end
   end
 end

@@ -1,3 +1,4 @@
 class Scan < ActiveRecord::Base
-	has_one :tag
+	belongs_to :customer
+	belongs_to :tag
 end

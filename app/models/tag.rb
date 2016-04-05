@@ -2,6 +2,7 @@ class Tag < ActiveRecord::Base
 	acts_as_mappable
 
 	belongs_to :product
+	has_many :scans
 
 	validates :lat, numericality: { 
 		greater_than_or_equal_to: -90.0, 
@@ -15,8 +16,9 @@ class Tag < ActiveRecord::Base
 		allow_nil: true
 	}
 
+
 	# TODO: Fix the insane API usage here
-	def country
-		Geokit::Geocoders::GoogleGeocoder.reverse_geocode "#{lat}, #{lng}"
-	end
+	# def country
+	# 	Geokit::Geocoders::GoogleGeocoder.reverse_geocode "#{lat}, #{lng}"
+	# end
 end

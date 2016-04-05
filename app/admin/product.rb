@@ -22,8 +22,10 @@ ActiveAdmin.register Product do
     column :description
     column :group
     column :created_at
+    column :tag_count
     actions
   end
+
 
   show do 
     attributes_table do
@@ -31,6 +33,19 @@ ActiveAdmin.register Product do
       row :group
       row :name
       row :description
+      row :tag_count
+    end
+
+    panel "Country Graphs" do
+      columns do
+        country_count = product.tags.group(:country).count
+        column do
+          geo_chart country_count
+        end
+        column do
+          pie_chart country_count
+        end
+      end
     end
 
     panel "Tags Deployed" do
@@ -38,9 +53,9 @@ ActiveAdmin.register Product do
         column :id
         column :lat
         column :lng
+        column :country
       end
     end
-
   end
 
 end
